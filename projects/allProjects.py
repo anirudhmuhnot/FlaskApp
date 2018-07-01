@@ -3,7 +3,7 @@ import dash_html_components as html
 import dash_core_components as dcc
 import base64
 
-@app.server.route('/static/<path:path>')
+@server.route('/static/<path:path>')
 def static_file(path):
     static_folder = os.path.join(os.getcwd(), 'static')
     return send_from_directory(static_folder, path)
