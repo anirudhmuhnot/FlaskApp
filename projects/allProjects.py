@@ -2,7 +2,7 @@ from dash.dependencies import Input, Output
 import dash_html_components as html
 import dash_core_components as dcc
 import base64
-
+import os
 #future database variables
 projects = {
             'Student Dashboard': ['A dashboard for tracking attendance, academic performance of students in realtime.','student_dash'], 
