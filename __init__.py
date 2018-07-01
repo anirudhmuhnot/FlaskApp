@@ -14,8 +14,7 @@ app.config.supress_callback_exceptions = True
 
 external_css = [
     'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css',
-    'https://fonts.googleapis.com/icon?family=Material+Icons',
-    '/var/www/FlaskApp/FlaskApp/static/base1.css'
+    'https://fonts.googleapis.com/icon?family=Material+Icons'
 ]
 
 external_js = [
@@ -26,10 +25,10 @@ for my_js in external_js:
   app.scripts.append_script({"external_url": my_js})
 
 
-@app.server.route('/var/www/FlaskApp/FlaskApp/static/<path:path>')
-def static_file(path):
-    static_folder = os.path.join(os.getcwd(), 'static')
-    return send_from_directory(static_folder, path)
+# @app.server.route('/var/www/FlaskApp/FlaskApp/static/<path:path>')
+# def static_file(path):
+#     static_folder = os.path.join(os.getcwd(), 'static')
+#     return send_from_directory(static_folder, path)
 
 for css in external_css:
     app.css.append_css({"external_url": css})
