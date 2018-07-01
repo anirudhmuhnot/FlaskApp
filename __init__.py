@@ -25,14 +25,6 @@ for my_js in external_js:
 for css in external_css:
     app.css.append_css({"external_url": css})
 
-app.css.config.serve_locally = True
-app.scripts.config.serve_locally = True
-
-
-@app.server.route('/static/<path:path>')
-def static_file(path):
-    static_folder = os.path.join(os.getcwd(), 'static')
-    return send_from_directory(static_folder, path)
 
 #apps_database
 apps = {
@@ -69,6 +61,11 @@ app.layout = html.Div([
     #display container, layouts are returned to this container
     html.Div(id='output',style={'display':'block'})
 ])
+
+@app.server.route('/static/<path:path>')
+def static_file(path):
+    static_folder = os.path.join(os.getcwd(), 'static')
+    return send_from_directory(static_folder, path)
 
 #for content
 @app.callback(Output('output', 'children'),
