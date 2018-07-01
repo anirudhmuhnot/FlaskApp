@@ -8,7 +8,7 @@ from projects import home,allProjects,student_dash,crime_analysis
 import os
 
 
-app = dash.Dash(static_folder='static')
+app = dash.Dash()
 app.config.supress_callback_exceptions = True
 
 external_css = [
