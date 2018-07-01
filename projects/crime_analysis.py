@@ -22,9 +22,31 @@ temp1 = temp1.sort_values(by='SUM',ascending=False)
 temp1=temp1.reset_index()
 temp1.columns=['Crime','Total']
 colorscale = [[0, '#FAEE1C'], [0.33, '#F3558E'], [0.66, '#9C1DE7'], [1, '#581B98']]
-
+top5 = temp1['Crime'][:5]
+temp2 = df.groupby(['STATE/UT','YEAR']).sum()
+temp2 = temp2.reset_index()
+temp2.drop('YEAR',axis=1,inplace=True)
+k=[]
+#top5 total crime committed by state
+for i in top5:
+    temp2 = temp2.sort_values(by=i,ascending=False)
+    k.append(dcc.Graph(id=i,figure = {
+        'data':[go.Bar(
+            x=temp2['STATE/UT'],
+            y=temp2[i]
+        )],
+        'layout' : {
+        'title': i,
+        'titlefont':dict(size=24,family='Courier New, monospace'),
+        'height':600,
+        'margin':go.Margin(b=200),
+        'xaxis':dict(title='STATE',tickfont=dict(size=10)),
+        'yaxis':dict(title='NUMBER OF CRIMES COMMITTED'),
+        'font':dict(size=12, color='#7f7f7f')
+    }
+    }))
 layout = html.Div(children=[
-    html.H1('IPC Crime Analysis'),
+    html.H2('IPC Crime Visualisation(2000-2012)'),
     dcc.Graph(
     	id='one',
 		figure = {
@@ -42,7 +64,8 @@ layout = html.Div(children=[
     		}
 		}
     ),
-    dcc.Graph(id='two',
+    dcc.Graph(
+    	id='two',
     	figure={
 	    	'data':[go.Scatter(
 	    		x = temp1['Crime'],
@@ -65,5 +88,6 @@ layout = html.Div(children=[
 		        'font':dict(size=12, color='#7f7f7f')
 	    	}
 		}	
-	)
+	),
+    k[i] for k in range(len(k))
 ])
