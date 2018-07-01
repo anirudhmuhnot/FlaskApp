@@ -18,6 +18,7 @@ df = pd.read_csv('/var/www/FlaskApp/FlaskApp/projects/crime_data/01_District_wis
 layout = html.Div(children=[
     html.H1('IPC Crime Analysis'),
     dcc.Graph(
+    	id='one',
 		figure = {
 	    	'data' : [go.Bar(
 	            x=df['STATE/UT'],y=df['TOTAL IPC CRIMES'],name='TOTAL IPC CRIMES',marker=dict(color='#F3558E')
