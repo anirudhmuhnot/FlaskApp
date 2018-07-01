@@ -1,3 +1,4 @@
+import os
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
@@ -5,7 +6,7 @@ import dash
 from flask import send_from_directory
 import time
 from projects import home,allProjects,student_dash,crime_analysis
-import os
+
 
 
 app = dash.Dash()
