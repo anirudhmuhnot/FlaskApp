@@ -11,7 +11,8 @@ app.config.supress_callback_exceptions = True
 
 external_css = [
     'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css',
-    'https://fonts.googleapis.com/icon?family=Material+Icons'
+    'https://fonts.googleapis.com/icon?family=Material+Icons',
+    'https://codepen.io/muhnot/pen/bKzaZr.css'
 ]
 
 external_js = [
@@ -36,11 +37,6 @@ apps = {
 
 #loaded navbar
 app.layout = html.Div([
-    html.Link(
-        rel='stylesheet',
-        href='/var/www/FlaskApp/FlaskApp/static/base1.css'
-    ),
-    html.Div('Assets loading locally'),
     dcc.Location(id='url', refresh=False),
     html.Div(className='navbar-fixed',children=[
         html.Nav([
