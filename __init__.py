@@ -38,7 +38,7 @@ apps = {
 app.layout = html.Div([
     html.Link(
         rel='stylesheet',
-        href='/static/base1.css'
+        href='/var/www/FlaskApp/FlaskApp/static/base1.css'
     ),
     html.Div('Assets loading locally'),
     dcc.Location(id='url', refresh=False),
