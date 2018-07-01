@@ -12,7 +12,7 @@ app.config.supress_callback_exceptions = True
 external_css = [
     'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
-    '/static/base1.css'
+    '/var/www/FlaskApp/FlaskApp/static/base1.css'
 ]
 
 external_js = [
