@@ -10,7 +10,7 @@ projects = {
            };
 a = []
 for key,value in projects.iteritems():
-        img_name = 'static/'+value[1]+'.png'
+        img_name = '/static/'+value[1]+'.png'
         a.append(html.Div(className='col s6 m4 l4',children=[
                 html.Div(className='card small',children=[
                     html.Div(className='card-image waves-effect waves-block waves-light',children=[
