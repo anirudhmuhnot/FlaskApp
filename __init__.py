@@ -15,9 +15,6 @@ external_css = [
     '/var/www/FlaskApp/FlaskApp/static/base1.css'
 ]
 
-for css in external_css:
-    app.css.append_css({"external_url": css})
-
 external_js = [
      'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'
 ]
@@ -30,6 +27,9 @@ for my_js in external_js:
 def static_file(path):
     static_folder = os.path.join(os.getcwd(), 'static')
     return send_from_directory(static_folder, path)
+
+for css in external_css:
+    app.css.append_css({"external_url": css})
 
 
 #apps_database
