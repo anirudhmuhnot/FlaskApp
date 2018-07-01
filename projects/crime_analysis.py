@@ -10,7 +10,6 @@ import plotly.graph_objs as go
 from plotly.grid_objs import Grid, Column
 import time
 import numpy as np #numerical computations
-import cufflinks as cf #plotly with pandas
 import plotly.tools as tls
 
 
