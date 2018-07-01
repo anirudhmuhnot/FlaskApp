@@ -16,21 +16,23 @@ df = pd.read_csv('/var/www/FlaskApp/FlaskApp/projects/crime_data/01_District_wis
 
 layout = html.Div(children=[
     html.H1('IPC Crime Analysis'),
-    dcc.Graph(
-    	id='one',
-		figure = {
-	    	'data' : [go.Bar(
-	            x=df['STATE/UT'],y=df['TOTAL IPC CRIMES'],name='TOTAL IPC CRIMES',marker=dict(color='#F3558E')
-	    	)],
-	    	'layout' : {
-		        'title':'NUMBER OF CRIMES COMMITTED IN DIFFERENT STATES',
-		        'font':dict(size=12, color='#7f7f7f'),
-		        'titlefont':dict(size=24,family='Courier New, monospace'),
-		        'height':620,
-		        'margin':go.Margin(b=130,pad=3),
-		        'xaxis':dict(title='State',tickfont=dict(size=10)),
-		        'yaxis':dict(title='Number Of Crimes Committed')
-    		}
-		}
-    )
+    html.Div(className='container',children=[
+    	dcc.Graph(
+    		id='one',
+			figure = {
+	    		'data' : [go.Bar(
+	            	x=df['STATE/UT'],y=df['TOTAL IPC CRIMES'],name='TOTAL IPC CRIMES',marker=dict(color='#F3558E')
+	    		)],
+	    		'layout' : {
+			        'title':'NUMBER OF CRIMES COMMITTED IN DIFFERENT STATES',
+			        'font':dict(size=12, color='#7f7f7f'),
+			        'titlefont':dict(size=24,family='Courier New, monospace'),
+			        'height':620,
+			        'margin':go.Margin(b=130,pad=3),
+			        'xaxis':dict(title='State',tickfont=dict(size=10)),
+			        'yaxis':dict(title='Number Of Crimes Committed')
+	    		}
+			}
+    	)
+    ])
 ])
