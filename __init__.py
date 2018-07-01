@@ -4,7 +4,6 @@ import dash_html_components as html
 import dash
 from flask import send_from_directory
 import time
-from projects import home,allProjects,student_dash,crime_analysis
 
 app = dash.Dash(static_folder='static')
 app.config.supress_callback_exceptions = True
@@ -57,7 +56,7 @@ for key,value in projects.iteritems():
                 ])
             ])
         )
-
+from projects import home,allProjects,student_dash,crime_analysis
 #apps_database
 apps = {
   'home':home,
