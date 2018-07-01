@@ -31,13 +31,6 @@ def static_file(path):
     static_folder = os.path.join(os.getcwd(), 'static')
     return send_from_directory(static_folder, path)
 
-@app.server.route('/images/<path:path>')
-def static_file(path):
-    img_folder = os.path.join(os.getcwd(), 'images')
-    return send_from_directory(img_folder, path)
-
-
-
 
 #apps_database
 apps = {
