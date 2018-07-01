@@ -4,7 +4,7 @@ import dash_html_components as html
 import dash
 from flask import send_from_directory
 import time
-
+import base64
 app = dash.Dash(static_folder='static')
 app.config.supress_callback_exceptions = True
 

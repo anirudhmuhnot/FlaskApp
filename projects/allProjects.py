@@ -1,7 +1,6 @@
 from dash.dependencies import Input, Output
 import dash_html_components as html
 import dash_core_components as dcc
-import base64
 
 layout = html.Div(id='content',className='container animate-bottom',style={'display':'none'},children=[
     html.Br(),
