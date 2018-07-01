@@ -1,4 +1,3 @@
-import os
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
@@ -6,8 +5,6 @@ import dash
 from flask import send_from_directory
 import time
 from projects import home,allProjects,student_dash,crime_analysis
-
-
 
 app = dash.Dash()
 app.config.supress_callback_exceptions = True
@@ -25,14 +22,17 @@ for my_js in external_js:
   app.scripts.append_script({"external_url": my_js})
 
 
-# @app.server.route('/var/www/FlaskApp/FlaskApp/static/<path:path>')
-# def static_file(path):
-#     static_folder = os.path.join(os.getcwd(), 'static')
-#     return send_from_directory(static_folder, path)
-
 for css in external_css:
     app.css.append_css({"external_url": css})
 
+app.css.config.serve_locally = True
+app.scripts.config.serve_locally = True
+
+
+@app.server.route('/static/<path:path>')
+def static_file(path):
+    static_folder = os.path.join(os.getcwd(), 'static')
+    return send_from_directory(static_folder, path)
 
 #apps_database
 apps = {
@@ -44,6 +44,11 @@ apps = {
 
 #loaded navbar
 app.layout = html.Div([
+    html.Link(
+        rel='stylesheet',
+        href='/static/base1.css'
+    ),
+    html.Div('Assets loading locally'),
     dcc.Location(id='url', refresh=False),
     html.Div(className='navbar-fixed',children=[
         html.Nav([
