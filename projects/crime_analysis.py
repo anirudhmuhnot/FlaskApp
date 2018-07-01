@@ -12,26 +12,36 @@ import time
 import numpy as np #numerical computations
 import plotly.tools as tls
 
-
 df = pd.read_csv('/var/www/FlaskApp/FlaskApp/projects/crime_data/01_District_wise_crimes_committed_IPC_2001_2012.csv')
-
+print(df.head())
 layout = html.Div(children=[
     html.H1('IPC Crime Analysis'),
     dcc.Graph(
-    	id='one',
-		figure = {
-	    	'data' : [go.Bar(
-	            x=df['STATE/UT'],y=df['TOTAL IPC CRIMES'],name='TOTAL IPC CRIMES',marker=dict(color='#F3558E')
-	    	)],
-	    	'layout' : {
-		        'title':'NUMBER OF CRIMES COMMITTED IN DIFFERENT STATES',
-		        'font':dict(size=12, color='#7f7f7f'),
-		        'titlefont':dict(size=24,family='Courier New, monospace'),
-		        'height':620,
-		        'margin':go.Margin(b=130,pad=3),
-		        'xaxis':dict(title='State',tickfont=dict(size=10)),
-		        'yaxis':dict(title='Number Of Crimes Committed')
-    		}
-		}
+        id='example-graph',
+        figure={
+            'data': [
+                {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
+                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
+            ],
+            'layout': {
+                'title': 'Dash Data Visualization'
+            }
+        }
     )
+  #   	id='one',
+		# figure = {
+	 #    	'data' : [go.Bar(
+	 #            x=df['STATE/UT'],y=df['TOTAL IPC CRIMES'],name='TOTAL IPC CRIMES',marker=dict(color='#F3558E')
+	 #    	)],
+	 #    	'layout' : {
+		#         'title':'NUMBER OF CRIMES COMMITTED IN DIFFERENT STATES',
+		#         'font':dict(size=12, color='#7f7f7f'),
+		#         'titlefont':dict(size=24,family='Courier New, monospace'),
+		#         'height':620,
+		#         'margin':go.Margin(b=130,pad=3),
+		#         'xaxis':dict(title='State',tickfont=dict(size=10)),
+		#         'yaxis':dict(title='Number Of Crimes Committed')
+  #   		}
+		# }
+  #   )
 ])
