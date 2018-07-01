@@ -1,6 +1,7 @@
 from dash.dependencies import Input, Output
 import dash_html_components as html
 import dash_core_components as dcc
+import base64
 
 #future database variables
 projects = {
