@@ -89,5 +89,5 @@ layout = html.Div(children=[
 	    	}
 		}	
 	),
-    k[i] for i in range(len(k))
+    k[0],k[1],k[2],k[3],k[4]
 ])
