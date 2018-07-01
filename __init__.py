@@ -4,11 +4,11 @@ import dash_html_components as html
 import dash
 from flask import send_from_directory
 import time
+from projects import home,allProjects,student_dash,crime_analysis
 
 app = dash.Dash()
-server = app.server
 app.config.supress_callback_exceptions = True
-from projects import home,allProjects,student_dash,crime_analysis
+
 external_css = [
     'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
@@ -83,6 +83,6 @@ def display_page(pathname):
         return {'display':'block'}
     return {'display':'block'}
 
-
+server = app.server
 if __name__ == '__main__':
     app.run_server(debug=True)

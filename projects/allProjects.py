@@ -3,11 +3,6 @@ import dash_html_components as html
 import dash_core_components as dcc
 import base64
 
-@app.server.route('/static/<path:path>')
-def static_file(path):
-    static_folder = os.path.join(os.getcwd(), 'static')
-    return send_from_directory(static_folder, path)
-
 #future database variables
 projects = {
             'Student Dashboard': ['A dashboard for tracking attendance, academic performance of students in realtime.','student_dash'], 
@@ -15,7 +10,7 @@ projects = {
            };
 a = []
 for key,value in projects.iteritems():
-        img_name = '/static/'+value[1]+'.png'
+        img_name = 'static/'+value[1]+'.png'
         a.append(html.Div(className='col s6 m4 l4',children=[
                 html.Div(className='card small',children=[
                     html.Div(className='card-image waves-effect waves-block waves-light',children=[
