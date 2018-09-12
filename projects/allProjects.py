@@ -8,7 +8,7 @@ projects = {
             'Crime Data Analysis': ['Analysis of IPSC crime committed from year 2000-2014.','crime_analysis']
            };
 a = []
-for key,value in projects.iteritems():
+for key,value in projects.items():
         img_name = '/var/www/FlaskApp/FlaskApp/static/'+value[1]+'.png'
         a.append(html.Div(className='col s6 m4 l4',children=[
                 html.Div(className='card small',children=[

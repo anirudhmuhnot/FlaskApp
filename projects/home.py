@@ -9,7 +9,7 @@ content = {
 	'Practial applications at heart':['This webiste is an implementation of the techniques described. UI is created by Dash framework introduced by plotly. All the codes are running on the website for practical demonstration.','view_carousel'],
 	'Help me improve':['Feel free to comment and post any issue regarding the project for more through explaination. If you identify any bug, let me know. Your feedback matters. You can email me at anirudhmuhnot30u30@gmail.com Thank you. Cheers.','settings']
 }
-for key,values in content.iteritems():
+for key,values in content.items():
 	a.append(
 		html.Div(className=['col s12 m4'],children=[
 			html.Div(className='icon-block',children=[
