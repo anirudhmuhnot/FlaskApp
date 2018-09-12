@@ -67,7 +67,7 @@ def static_file(path):
 @app.callback(Output('output', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
-    for key,value in apps.iteritems():
+    for key,value in apps.items():
       matchname = '/projects/'+key
       if pathname == matchname:
         return value.layout
@@ -77,7 +77,7 @@ def display_page(pathname):
 @app.callback(Output('content', 'style'),
               [Input('url', 'pathname')])
 def display_page(pathname):
-    for key,value in apps.iteritems():
+    for key,value in apps.items():
       matchname = '/projects/'+key
       if pathname == matchname:
         return {'display':'block'}

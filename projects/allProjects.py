@@ -9,7 +9,7 @@ projects = {
            };
 a = []
 for key,value in projects.items():
-        img_name = '/var/www/FlaskApp/FlaskApp/static/'+value[1]+'.png'
+        img_name = '/Users/anirudhmuhnot/Desktop/OneDrive - technonjr.org/github/FlaskApp/static/'+value[1]+'.png'
         a.append(html.Div(className='col s6 m4 l4',children=[
                 html.Div(className='card small',children=[
                     html.Div(className='card-image waves-effect waves-block waves-light',children=[

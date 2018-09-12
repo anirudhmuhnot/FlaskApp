@@ -12,7 +12,7 @@ import time
 import numpy as np #numerical computations
 import plotly.tools as tls
 
-df = pd.read_csv('/var/www/FlaskApp/FlaskApp/projects/crime_data/01_District_wise_crimes_committed_IPC_2001_2012.csv')
+df = pd.read_csv('/Users/anirudhmuhnot/Desktop/OneDrive - technonjr.org/github/FlaskApp/projects/crime_data/01_District_wise_crimes_committed_IPC_2001_2012.csv')
 #most committed crimes most committed crimes
 s = df.sum(axis=0)
 s.drop(['STATE/UT','DISTRICT','YEAR','TOTAL IPC CRIMES','OTHER IPC CRIMES'],inplace=True)
@@ -72,7 +72,7 @@ layout = html.Div(children=[
 			    y = temp1['Total'],
 			    mode='markers',
 			    marker=dict(
-			        size='15',
+			        size=15,
 			        color = np.random.randn(500),
 			        colorscale=colorscale,
 			        showscale=True
