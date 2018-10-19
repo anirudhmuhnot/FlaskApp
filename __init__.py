@@ -1,3 +1,4 @@
+a
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
@@ -86,3 +87,4 @@ def display_page(pathname):
 server = app.server
 if __name__ == '__main__':
     app.run_server(debug=True,host='0.0.0.0',port=9601)
+
