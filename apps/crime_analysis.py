@@ -8,7 +8,7 @@ from app import app
 import dash
 
 df = pd.read_csv(
-    '/Users/anirudhmuhnot/Google Drive/github/FlaskApp/apps/data/crime_data/01_District_wise'
+    '/home/anirudhgcp5/FlaskApp/apps/data/crime_data/01_District_wise'
     '_crimes_committed_IPC_2001_2012.csv')
 # most committed crimes most committed crimes
 

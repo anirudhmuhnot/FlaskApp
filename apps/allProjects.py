@@ -12,7 +12,7 @@ projects = {
            }
 a = []
 for key,value in projects.items():
-        img_name = '/Users/anirudhmuhnot/Google Drive/github/FlaskApp/static/'+value[1]+'.png'
+        img_name = '/home/anirudhgcp5/FlaskApp/static/'+value[1]+'.png'
         encoded_image = base64.b64encode(open(img_name, 'rb').read())
         a.append(html.Div(className='col s6 m4 l4 animated zoomIn',children=[
                 html.Div(className='card small',children=[

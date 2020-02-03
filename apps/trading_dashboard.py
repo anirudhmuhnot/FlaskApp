@@ -162,10 +162,10 @@ def update_output(n_clicks, start_date, end_date, n, lt_oi, gt_oi, lt_price, gt_
             lt_price = 100
             gt_price = 0
 
-        OI_hist = pd.read_csv('/Users/anirudhmuhnot/Google Drive/github/FlaskApp/apps/data/trading_data/OI_hist.csv')
+        OI_hist = pd.read_csv('/home/anirudhgcp5/FlaskApp/apps/data/trading_data/OI_hist.csv')
         OI_hist['Date'] = pd.to_datetime(OI_hist['Date'])
         OI_data_moneycontrol = pd.read_csv(
-            '/Users/anirudhmuhnot/Google Drive/github/FlaskApp/apps/data/trading_data/OI_data_moneycontrol.csv')
+            '/home/anirudhgcp5/FlaskApp/apps/data/trading_data/OI_data_moneycontrol.csv')
         sday, smonth, syear = int(str(start_date).split('-')[0]), int(str(start_date).split('-')[1]), int(
             str(start_date).split('-')[2])
         eday, emonth, eyear = int(str(end_date).split('-')[0]), int(str(end_date).split('-')[1]), int(
