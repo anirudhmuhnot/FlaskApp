@@ -1,6 +1,6 @@
 from fastai.vision import *
 import dash
-from app import app
+from start import app
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
@@ -9,7 +9,7 @@ import time
 from base64 import decodestring
 import numpy as np
 import base64
-img_name = '/home/anirudhgcp5/FlaskApp/static/damage_categories.png'
+img_name = './static/damage_categories.png'
 encoded_image = base64.b64encode(open(img_name, 'rb').read())
 layout = html.Div([
     html.Div(className='container animated zoomIn',children=[
@@ -56,16 +56,16 @@ layout = html.Div([
 
 def get_prediction(content):
     img = open_image(content)
-    learn = load_learner('/home/anirudhgcp5/FlaskApp/apps/data/vehicle_damage')
+    learn = load_learner('./apps/data/vehicle_damage')
     pred, idx, output = learn.predict(img)
     return pred,output,idx
 
 def parse_contents(contents, filename, m):
     image = contents.split(',')[1]
     data = decodestring(image.encode('ascii'))
-    with open("/home/anirudhgcp5/FlaskApp/apps/data/vehicle_damage/test/" + filename, "wb") as f:
+    with open("./apps/data/vehicle_damage/test/" + filename, "wb") as f:
         f.write(data)
-    r,out,idx = get_prediction(str('/home/anirudhgcp5/FlaskApp/apps/data/vehicle_damage/test/'+filename))
+    r,out,idx = get_prediction(str('./apps/vehicle_damage/test/'+filename))
     return html.Div(html.Div(className='row animated '+m,children=[
             html.Div(className='col s6 m6 l6',children=[
                 html.Br(),

@@ -4,11 +4,11 @@ import dash_core_components as dcc
 import pandas as pd  # dataframe manipulation
 import plotly.graph_objs as go
 import numpy as np  # numerical computations
-from app import app
+from start import app
 import dash
 
 df = pd.read_csv(
-    '/home/anirudhgcp5/FlaskApp/apps/data/crime_data/01_District_wise'
+    './apps/data/crime_data/01_District_wise'
     '_crimes_committed_IPC_2001_2012.csv')
 # most committed crimes most committed crimes
 

@@ -1,10 +1,13 @@
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
-from app import app
+from start import app 
 from apps import home, allProjects, crime_analysis, vehicle_damage, trading_dashboard
 from apps.blog import blog_home
 # apps_database
+import dash
+
+
 apps = {
     'home': home,
     'allProjects': allProjects,
