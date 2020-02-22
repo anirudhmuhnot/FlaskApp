@@ -65,7 +65,7 @@ def parse_contents(contents, filename, m):
     data = decodestring(image.encode('ascii'))
     with open("./apps/data/vehicle_damage/test/" + filename, "wb") as f:
         f.write(data)
-    r,out,idx = get_prediction(str('./apps/vehicle_damage/test/'+filename))
+    r,out,idx = get_prediction(str('./apps/data/vehicle_damage/test/'+filename))
     return html.Div(html.Div(className='row animated '+m,children=[
             html.Div(className='col s6 m6 l6',children=[
                 html.Br(),

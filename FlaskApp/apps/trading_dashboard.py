@@ -30,25 +30,25 @@ def generate_table(dataframe, max_rows=20000):
     )
 
 
-layout = html.Div(className='animated zoomIn', children=[
+layout = html.Div(className='animated zoomIn flow-text', children=[
     html.Center(html.H3('Trading Dashboard')),
     html.Center(html.H5('Adjust Parameters and click view. Set scrip to "All" to view all stocks.')),
     html.Br(),
     # display container, layouts are returned to this container
     html.Div(className='container', children=[
         html.Div(className='row', children=[
-            html.Div(className='input-field col l4 m3 s12', children=[
+            html.Div(className='input-field col l4 m6 s12', children=[
                 html.I(className="material-icons prefix", children=['date_range']),
                 dcc.Input(id='inputddate-1', type='text', value=start_date_daily),
                 html.Label(className='active', htmlFor='inputddate-1', children=['Start Date'])
             ]),
 
-            html.Div(className='input-field col l4 m3 s12', children=[
+            html.Div(className='input-field col l4 m6 s12', children=[
                 html.I(className="material-icons prefix", children=['date_range']),
                 dcc.Input(id='inputddate-2', type='text', value=end_date_daily),
                 html.Label(className='active', htmlFor='inputddate-2', children=['End Date'])
             ]),
-            html.Div(className='input-field col l4 m3 s12', children=[
+            html.Div(className='input-field col l4 m6 s12', children=[
                 html.I(className="material-icons prefix", children=['dehaze']),
                 dcc.Input(id='n_rows', type='text', value=10),
                 html.Label(className='active', htmlFor='n_rows', children=['No. of Rows'])
@@ -57,30 +57,30 @@ layout = html.Div(className='animated zoomIn', children=[
 
         html.H6('Set Range for Open Interest and Price: '),
         html.Div(className='row', children=[
-            html.Div(className='input-field col l3 m3 s12', children=[
+            html.Div(className='input-field col l3 m6 s12', children=[
                 html.I(className="material-icons prefix", children=['expand_more']),
                 dcc.Input(id='gt_oi', type='text', value=100),
                 html.Label(className='active', htmlFor='gt_oi', children=['OI <'])
             ]),
 
-            html.Div(className='input-field col l3 m3 s12', children=[
+            html.Div(className='input-field col l3 m6 s12', children=[
                 html.I(className="material-icons prefix", children=['expand_less']),
                 dcc.Input(id='lt_oi', type='text', value=0),
                 html.Label(className='active', htmlFor='lt_oi', children=['OI >'])
             ]),
 
-            html.Div(className='input-field col l3 m3 s12', children=[
+            html.Div(className='input-field col l3 m6 s12', children=[
                 html.I(className="material-icons prefix", children=['expand_more']),
                 dcc.Input(id='gt_price', type='text', value=100),
                 html.Label(className='active', htmlFor='gt_price', children=['Price <'])
             ]),
 
-            html.Div(className='input-field col l3 m3 s12', children=[
+            html.Div(className='input-field col l3 m6 s12', children=[
                 html.I(className="material-icons prefix", children=['expand_less']),
                 dcc.Input(id='lt_price', type='text', value=0),
                 html.Label(className='active', htmlFor='lt_price', children=['Price >'])
             ]),
-            html.Div(className='col s6 m3 l4', children=[
+            html.Div(className='col s12 m6 l6', children=[
                 html.H5(className='blue-text', children=['Sector: ']),
                 dcc.Dropdown(
                     id='sector',
@@ -110,18 +110,21 @@ layout = html.Div(className='animated zoomIn', children=[
                     value='All'
                 )
             ]),
-            html.Div(className='input-field col l4 m3 s12', children=[
-                html.Center(
-                    html.Button(className='waves-effect waves-light btn', children=['View'], id='my-button-daily'))
-            ]),
-
+            html.Div(className='col s12 m6 l6',children=[
             html.H5(className='blue-text', children=['Scrip: ']),
-            html.Div(className='input-field col l4 m3 s12', children=[
+            html.Div(className='input-field', children=[
                 html.I(className="material-icons prefix", children=['expand_less']),
                 dcc.Input(id='scrip', type='text', value='ONGC'),
                 html.Label(className='active', htmlFor='scrip', children=['Scrip'])
+                ])
             ]),
-
+            html.Div(className = 'col l12 m12 s12 ',children=[
+            html.Center(className='',children=[
+                html.Div(className='input-field', children=[
+                    html.Button(className='waves-effect waves-light btn', children=['View'], id='my-button-daily')
+                    ])
+                ])
+            ])
         ])
     ]),
     html.Div(id='daily_dashboard', style={'display': 'block'}, children=[]),

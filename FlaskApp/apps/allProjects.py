@@ -4,9 +4,9 @@ import base64
 #future database variables
 projects = {
             'Crime Data Analysis': ['Analysis of IPSC crime committed from year 2001-2012.','crime_analysis'],
-            'Vehicle Damage Classifier': ['Machine Learning model/API to classify Vehicle Damage(Windshield, Front/Rear'
+            'Car Damage Classifier': ['Machine Learning model/API to classify Vehicle Damage(Windshield, Front/Rear'
                                           ' headlights, Tire Front/Rear Bumper) using a dataset of 1000 images '
-                                          'downloaded from Google. and Fast AI library','vehicle_damage'],
+                                          'downloaded from Google. and Fast AI library','damage_categories'],
              'Trading Dashboard' : ['A Real-Time* Trading dashboard to compare Open Interest and Prices of various '
                                     'stocks using Bhavcopy and data scraped from moneycontrol.com.','trading_dashboard']
            }
@@ -14,8 +14,8 @@ a = []
 for key,value in projects.items():
         img_name = './static/'+value[1]+'.png'
         encoded_image = base64.b64encode(open(img_name, 'rb').read())
-        a.append(html.Div(className='col s6 m4 l4 animated zoomIn',children=[
-                html.Div(className='card small',children=[
+        a.append(html.Div(className='col s6 m6 l4 animated zoomIn',children=[
+                html.Div(className='card small hoverable',children=[
                     html.Div(className='card-image waves-effect waves-block waves-light',children=[
                         html.Img(className='activator',src='data:image/png;base64,{}'.format(encoded_image.decode()))
                     ]),
@@ -35,7 +35,7 @@ for key,value in projects.items():
         )
 
 
-layout = html.Div(id='content',className='container',children=[
+layout = html.Div(id='content',className='container flow-text',children=[
     html.Br(),
     html.H4("Dashboards and API's: "),
     html.Hr(),

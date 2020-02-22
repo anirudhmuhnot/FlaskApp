@@ -86,17 +86,17 @@ layout4 = {
 }
 
 # fifth
-pie = html.Div(className='row', children=[
-    html.Div(className='col s12', children=[
-        html.Center(dcc.Graph(id="pie-graph", style={'height': '80vh', 'width': '80vh'}))
-    ]),
-    html.Div(className='col s12', children=[
-        html.Center(dcc.Slider(id='year-selected', min=2001, max=2012, value=2001,
-                               marks={2001: "2001", 2002: "2002", 2003: "2003", 2004: "2004", 2005:
-                                   "2005", 2006: "2006", 2007: "2007", 2008: "2008", 2009: "2009", 2010: "2010",
-                                      2011: "2011", 2012: "2012"}))
-    ])
-])
+# pie = html.Div(className='row', children=[
+#     html.Div(className='col s12', children=[
+#         html.Center(dcc.Graph(id="pie-graph", style={'height': '80vh', 'width': '80vh'}))
+#     ]),
+#     html.Div(className='col s12', children=[
+#         html.Center(dcc.Slider(id='year-selected', min=2001, max=2012, value=2001,
+#                                marks={2001: "2001", 2002: "2002", 2003: "2003", 2004: "2004", 2005:
+#                                    "2005", 2006: "2006", 2007: "2007", 2008: "2008", 2009: "2009", 2010: "2010",
+#                                       2011: "2011", 2012: "2012"}))
+#     ])
+# ])
 
 temp2 = df.groupby(['STATE/UT', 'YEAR']).sum()
 temp2 = temp2.reset_index()
@@ -121,7 +121,7 @@ for i in top5:
     }))
 
 # layout_final
-layout = html.Div(className='animated zoomIn',children=[
+layout = html.Div(className='animated zoomIn flow-text',children=[
     html.H2('IPC Crime Visualisation(2001-2012)'),
     dcc.Graph(
         id='one',
@@ -174,21 +174,21 @@ layout = html.Div(className='animated zoomIn',children=[
         figure=go.Figure(data=data4, layout=layout4)
     ),
 
-    pie,
+    # pie,
     html.H4('Top 5 Crimes committed in States'),
     k[0], k[1], k[2], k[3], k[4]
 ])
 
 
-@app.callback(
-    dash.dependencies.Output("pie-graph", "figure"),
-    [dash.dependencies.Input("year-selected", "value")]
-)
-def update_graph(selected):
-    agg = df[df["YEAR"] == selected][["TOTAL IPC CRIMES", "STATE/UT"]]
-    agg.groupby('STATE/UT').sum()
-    return {
-        "data": [go.Pie(labels=agg['STATE/UT'], values=agg['TOTAL IPC CRIMES'], name='STATE', pull=.15, hole=.25,
-                        textposition='none', textinfo='text')],
-        "layout": go.Layout(title=f"Cases Reported Yearly"),
-    }
+# @app.callback(
+#     dash.dependencies.Output("pie-graph", "figure"),
+#     [dash.dependencies.Input("year-selected", "value")]
+# )
+# def update_graph(selected):
+#     agg = df[df["YEAR"] == selected][["TOTAL IPC CRIMES", "STATE/UT"]]
+#     agg.groupby('STATE/UT').sum()
+#     return {
+#         "data": [go.Pie(labels=agg['STATE/UT'], values=agg['TOTAL IPC CRIMES'], name='STATE', pull=.15, hole=.25,
+#                         textposition='none', textinfo='text')],
+#         "layout": go.Layout(title=f"Cases Reported Yearly"),
+#     }
