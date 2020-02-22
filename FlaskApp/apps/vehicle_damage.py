@@ -9,7 +9,7 @@ import time
 from base64 import decodestring
 import numpy as np
 import base64
-img_name = './static/damage_categories.png'
+img_name = './static/vehicle_damage.png'
 encoded_image = base64.b64encode(open(img_name, 'rb').read())
 layout = html.Div([
     html.Div(className='container animated zoomIn',children=[
