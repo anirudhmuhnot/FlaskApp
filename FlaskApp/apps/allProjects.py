@@ -6,7 +6,7 @@ projects = {
             'Crime Data Analysis': ['Analysis of IPSC crime committed from year 2001-2012.','crime_analysis'],
             'Car Damage Classifier': ['Machine Learning model/API to classify Vehicle Damage(Windshield, Front/Rear'
                                           ' headlights, Tire Front/Rear Bumper) using a dataset of 1000 images '
-                                          'downloaded from Google. and Fast AI library','damage_categories'],
+                                          'downloaded from Google. and Fast AI library','vehicle_damage'],
              'Trading Dashboard' : ['A Real-Time* Trading dashboard to compare Open Interest and Prices of various '
                                     'stocks using Bhavcopy and data scraped from moneycontrol.com.','trading_dashboard']
            }
