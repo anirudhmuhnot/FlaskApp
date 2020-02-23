@@ -9,6 +9,15 @@ import time
 from base64 import decodestring
 import numpy as np
 import base64
+
+cats = {
+    'broken_lights': 'Broken Light(s)',
+    'broken_bumper': 'Broken Bumper',
+    'broken_windshield': 'Broken Windshield',
+    'flat_tire' : 'Flat Tire',
+    'positives' : 'No Damage'
+
+}
 img_name = './static/vehicle_damage.png'
 encoded_image = base64.b64encode(open(img_name, 'rb').read())
 layout = html.Div([
@@ -54,6 +63,7 @@ layout = html.Div([
 ])
 
 
+
 def get_prediction(content):
     img = open_image(content)
     learn = load_learner('./apps/data/vehicle_damage')
@@ -63,9 +73,7 @@ def get_prediction(content):
 def parse_contents(contents, filename, m):
     image = contents.split(',')[1]
     data = decodestring(image.encode('ascii'))
-    with open("./apps/data/vehicle_damage/test/" + filename, "wb") as f:
-        f.write(data)
-    r,out,idx = get_prediction(str('./apps/data/vehicle_damage/test/'+filename))
+    r,out,idx = get_prediction(BytesIO(data))
     return html.Div(html.Div(className='row animated '+m,children=[
             html.Div(className='col s6 m6 l6',children=[
                 html.Br(),
@@ -81,7 +89,7 @@ def parse_contents(contents, filename, m):
                                     orientation='h')]
                 }))
             ]),
-            html.H6('Predicted category of vehicle damage is: '+str(r)),
+            html.H6('Predicted category of vehicle damage is: '+cats[str(r)]),
             html.Hr()
     ])
                     )

@@ -1,7 +1,7 @@
 import dash_html_components as html
 import base64
 
-img_name = './static/resume.png'
+img_name = './static/resume.jpg'
 encoded_image = base64.b64encode(open(img_name, 'rb').read())
 layout = html.Div(className='container',children=[
 	html.Div(className='row',children=[
