@@ -25,7 +25,7 @@ app.layout = html.Div([
         html.Nav([
             html.Div(className='nav-wrapper white', children=[
                 dcc.Link(className='brand-logo right hide-on-med-and-down grey-text',
-                         children=[html.I(className='material-icons left', children=['blur_on']), 'Anirudh Muhnot'],
+                         children=[html.I(className='material-icons left', children=['blur_on']), 'Anirudh Muhnot ML'],
                          href='/apps/about'),
                 html.Ul(className='left', children=[
                     dcc.Link(html.Li(className='grey-text', children=[html.I(className='material-icons left', children=['home']), 'About']),
