@@ -13,7 +13,7 @@ layout = html.Div(id='content', className='', children=[
                             html.Div(className='container',children=[
                                 html.Br(),
                                 html.Br(),
-                                html.H2(className='header center teal-text text-lighten-2',children=['"The happiest people I know are those who lose themselves in the service of others.:"']),
+                                html.H2(className='header center teal-text text-lighten-2',children=['"The happiest people I know are those who lose themselves in the service of others."']),
                                 html.Div(className='row center',children=[
                                     html.H5(className='header col s12 light',children=['Description of the website'])
                                     ]),
