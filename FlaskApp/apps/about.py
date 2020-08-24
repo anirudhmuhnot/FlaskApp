@@ -3,86 +3,61 @@ import dash_html_components as html
 import dash_core_components as dcc
 import base64
 
-img_name = './static/profile.jpeg'
-encoded_image = base64.b64encode(open(img_name, 'rb').read())
+par_image = './static/par_image.png'
+encoded_par = base64.b64encode(open(par_image, 'rb').read())
 layout = html.Div(id='content', className='', children=[
-                html.Div(className='',children=[
-                    html.Div(className='container',children=[
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Br(),
-                        html.Div(className='row',children=[
-                            html.Div(className='col s12 m12 l6 animated zoomIn hide-on-med-and-down', children=[
-                                    html.Div(className='row',children=[
-                                        html.Div(className='col s2 m2 l2'),
-                                        html.Div(className='col s8 m8 l8  valign-wrapper',style={'height':'35vh'},children=[
-                                            html.Img(className='responsive-img',src='data:image/png;base64,{}'.format(encoded_image.decode()))
-                                            ]),
-                                        html.Div(className='col s2 m2 l2')
-                                        ])
+
+
+                    html.Div(id='index-banner',className='parallax-container',children=[
+                        html.Div(className='section no-pad-bot',children=[
+                            html.Div(className='container',children=[
+                                html.Br(),
+                                html.Br(),
+                                html.H2(className='header center teal-text text-lighten-2',children=['"The happiest people I know are those who lose themselves in the service of others.:"']),
+                                html.Div(className='row center',children=[
+                                    html.H5(className='header col s12 light',children=['Description of the website'])
                                     ]),
-                            html.Div(className='col s12 m12 l6 animated zoomIn hide-on-large-only', children=[
-                                    html.Div(className='row',children=[
-                                        html.Div(className='col s2 m2 l2'),
-                                        html.Div(className='col s8 m8 l8  valign-wrapper',children=[
-                                            html.Img(className='responsive-img',src='data:image/png;base64,{}'.format(encoded_image.decode()))
-                                            ]),
-                                        html.Div(className='col s2 m2 l2')
-                                        ])
+                                html.Div(className='row center',children=[
+                                    dcc.Link(html.A(className='btn-large waves-effect waves-light blue',children=['View Projects']),href='/apps/'+'allProjects')
                                     ]),
-                            html.Div(className='col s12 m12 l6 animated zoomIn hide-on-med-and-down',children=[
-                                html.Div(className='row', children=[
-                                    html.Div(className='col s2 m2 l2'),
-                                    html.Div(className='col s8 m8 l8  valign-wrapper',style={'height':'35vh'},children=[
-                                        dcc.Link(html.A(className=' hoverable btn-large waves-effect waves-light blue', children=['Portfolio']),href='/apps/allProjects')
-                                        ]),
-                                    html.Div(className='col s2 m2 l2')
-                                    ])
-                                ]),
-                            html.Div(className='col s12 m12 l6 animated zoomIn hide-on-large-only',children=[
-                                html.Div(className='row', children=[
-                                    html.Div(className='col s2 m2 l2'),
-                                    html.Center(html.Div(className='col s8 m8 l8  center',children=[
-                                        dcc.Link(html.A(className=' hoverable btn-large waves-effect waves-light blue', children=['Portfolio']),href='/apps/allProjects')
-                                        ])),
-                                    html.Div(className='col s2 m2 l2')
-                                    ])
-                                ])
-                            ])     
-                        ])
-                ]),
-                # start of second section
-                html.Footer(className='page-footer white black-text flow-text', children=[
-                    html.Div(className='container', children=[
+                                html.Br(),
+                                html.Br()
+                            ])
+                        ]),
+                        html.Div(className='parallax',children=[
+                            html.Img(src='data:image/png;base64,{}'.format(encoded_par.decode()))
+                            ])
+                        ]),
+                    html.Div(className='container animated zoomIn flow-text', children=[
                         html.Div(className='row', children=[
                             html.Div(className='col l6 s12', children=[
-                                html.H5(className='black-text', children=[
-                                    'What I do'
+                                html.H5(className='teal-text', children=[
+                                    'What I do: '
                                 ]),
-                                html.P(className='grey-text', children=[
-                                    "I'm a freelancer working on Machine Learning projects and understanding state-of-the-art research papers. If you like these projects"
-                                    " and want to help your organisation deploy them, you can contact me: "
+                                html.P(className='black-text flow-text', children=[
+                                    "I'm a freelancer specializing in Machine Learning and Business Analytics. If you like these projects"
+                                    " and want to help your organisation deploy them, you can contact me. "
                                 ])
                             ]),
                             html.Div(className='col l3 s12', children=[
-                                html.H5(className='black-text', children=[
-                                    'Social Media'
+                                html.H5(className='teal-text', children=[
+                                    'Contact: '
                                 ]),
                                 html.Ul(children=[
-                                    html.Li(html.A(className='blue-text', children=['Linked In'],
+                                    html.Li(html.A(className='blue-text', children=['LinkedIn'],
                                                    href='https://www.linkedin.com/in/anirudhmuhnot/')),
                                     html.Li(html.A(className='blue-text', children=['Freelancer'],
                                                    href='https://www.freelancer.com/u/anirudhmuhnot')),
-                                    html.Li(className='grey-text', children=['Contact: anirudhmuhnot@icloud.com'])
+                                    html.Li(className='grey-text', children=['Email: anirudhmuhnot@icloud.com'])
                                 ])
                             ])
                         ])
                     ]),
-                    html.Div(className='footer-copyright', children=[
-                        html.Div(className='container grey-text', children=[
-                        'Made by Anirudh Muhnot'
+                    html.Footer(className='page-footer white black-text flow-text', children=[
+                        html.Div(className='footer-copyright', children=[
+                            html.Div(className='container grey-text', children=[
+                            'Made by Anirudh Muhnot'
+                            ])
                         ])
                     ])
                 ])
-    ])

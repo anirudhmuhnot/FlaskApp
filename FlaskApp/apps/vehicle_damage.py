@@ -18,7 +18,7 @@ cats = {
     'positives' : 'No Damage'
 
 }
-img_name = './static/vehicle_damage.png'
+img_name = './static/damage_cat.png'
 encoded_image = base64.b64encode(open(img_name, 'rb').read())
 layout = html.Div([
     html.Div(className='container animated zoomIn',children=[
@@ -53,9 +53,11 @@ layout = html.Div([
             ),
             html.Div(id='output-data-upload',className='row'),
             html.Div(className='row',children=[
-                html.H5('Damage Categories: '),
-                html.Br(),
-                html.Img(className='responsive-img', src='data:image/png;base64,{}'.format(encoded_image.decode()))
+                    html.Center([
+                    html.H5('Damage Categories: '),
+                    html.Br(),
+                    html.Img(className='responsive-img', src='data:image/png;base64,{}'.format(encoded_image.decode()))
+                    ])
                 ])
         ])
     ])

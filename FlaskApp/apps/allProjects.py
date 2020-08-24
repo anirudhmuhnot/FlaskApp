@@ -37,7 +37,7 @@ for key,value in projects.items():
 
 layout = html.Div(id='content',className='container flow-text',children=[
     html.Br(),
-    html.H4("Dashboards and API's: "),
+    html.H4(className='teal-text flow-text', children=["My Most Recent Projects: "]),
     html.Hr(),
     html.Br(),
     html.Div(className='row',children=[a[i] for i in range(len(a))

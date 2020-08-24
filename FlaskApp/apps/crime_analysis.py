@@ -122,7 +122,8 @@ for i in top5:
 
 # layout_final
 layout = html.Div(className='animated zoomIn flow-text',children=[
-    html.H2('IPC Crime Visualisation(2001-2012)'),
+    html.Br(),
+    html.Center(className='flow-text teal-text', children=[html.H2('I.P.C Crime Visualisation(2001-2012)')]),
     dcc.Graph(
         id='one',
         figure={
